@@ -10,23 +10,18 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-public class MasterController {
+public class CategoryController {
 
-    private CategoryService categoryService;
+    private CategoryService service;
 
     @Autowired
     public void setCategoryService(CategoryService categoryService) {
-        this.categoryService = categoryService;
-    }
-
-    @GetMapping("/")
-    public String home(){
-        return "ClubService";
+        this.service = service;
     }
 
 
     @GetMapping("/categories")
     public List<Category> getCategories(){
-        return categoryService.getCategories();
+        return service.getCategories();
     }
 }

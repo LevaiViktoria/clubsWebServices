@@ -1,13 +1,20 @@
 package hu.clubsWebService.services;
 
 import hu.clubsWebService.domain.Category;
+import hu.clubsWebService.repositories.CategoryRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class CategoryService {
-    public static List<Category> getCategories() {
-        return null;
+
+    @Autowired
+    private static CategoryRepository repository;
+
+
+    public List<Category> getCategories() {
+        return repository.findAll();
     }
 }
